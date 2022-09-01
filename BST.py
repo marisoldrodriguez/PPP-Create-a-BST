@@ -59,3 +59,22 @@ print(bst)
 
 
 #Part 3: Add functionality to your BST class
+  def add(self, node)
+  # incorrect data type
+    if type(node) != int and type(node) != BSTNode:
+      raise ValueError("Node must be an integer or BSTNode")
+
+# for integer data types
+    if type(node) == int:
+      node = BSTNode
+
+# already existing node in tree
+    if node.data in self.contents:
+      return
+
+# empty tree
+    if self.root == None:
+      self.root = node
+      self.contents.append(node.data)
+      return
+
